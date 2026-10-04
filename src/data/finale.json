@@ -1,0 +1,11 @@
+{
+  "start": 127,
+  "chatIn": 128,
+  "cutToBrand": 134,
+  "perWord": 0.22,
+  "line2At": 136,
+  "ringsAt": 137.2,
+  "ringsDur": 0.75,
+  "wipeAt": 137.8,
+  "logoDiameter": 420
+}

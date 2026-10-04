@@ -1,0 +1,43 @@
+{
+  "name": "in-full-confidence",
+  "version": "1.0.0",
+  "private": true,
+  "description": "In Full Confidence \u2013 a 2:20 animated film generated entirely as code (Remotion).",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "audio": "tsx scripts/generate-audio.ts",
+    "voice": "tsx scripts/generate-voice.ts",
+    "map": "tsx scripts/build-map.ts",
+    "render": "remotion render InFullConfidence out/in-full-confidence.mp4 --codec=h264 --crf=18",
+    "render:muted": "remotion render InFullConfidence out/in-full-confidence-muted.mp4 --codec=h264 --crf=18 --muted",
+    "player:build": "vite build --config player/vite.config.ts",
+    "typecheck": "tsc --noEmit",
+    "stills": "tsx scripts/stills.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.532",
+    "@remotion/fonts": "^4.0.532",
+    "@remotion/media-utils": "4.0.532",
+    "@remotion/player": "4.0.532",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "^4.0.532",
+    "@remotion/renderer": "^4.0.532",
+    "@types/d3-geo": "^3.1.1",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/topojson-client": "^3.1.5",
+    "@vitejs/plugin-react": "^4.7.0",
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^6.4.3",
+    "world-atlas": "^2.0.2"
+  }
+}

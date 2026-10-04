@@ -1,0 +1,151 @@
+{
+  "places": {
+    "Germany": { "lon": 10.4, "lat": 51.2 },
+    "London": { "lon": -0.13, "lat": 51.5 },
+    "Johannesburg": { "lon": 28.05, "lat": -26.2 }
+  },
+  "events": [
+    {
+      "id": "d-rewrite", "at": 39, "dwell": 3,
+      "label": "LinkedIn posts. Corporate reputation. Leadership thoughts. A CV.",
+      "visual": { "type": "rewriteBlocks", "items": ["LinkedIn post", "Leadership thoughts", "CV"] }
+    },
+    {
+      "id": "d-agencies", "at": 51, "dwell": 2.8, "hideLabel": true,
+      "label": "What does this mean for agencies?",
+      "visual": { "type": "promptInput" }
+    },
+    {
+      "id": "d-regenerate", "at": 54, "dwell": 2.9, "hideLabel": true,
+      "label": "Regenerate",
+      "visual": { "type": "regenerate", "clicks": [0.1, 0.45, 0.8, 1.15, 1.5], "resolveAt": 1.85 }
+    },
+
+    {
+      "id": "d-trainings", "at": 61, "dwell": 2.2,
+      "date": "2024",
+      "label": "First AI trainings for We. teams in Germany and London",
+      "visual": { "type": "map", "cities": ["Germany", "London"] }
+    },
+    {
+      "id": "d-images", "at": 63, "dwell": 2.4, "x": 900,
+      "label": "First AI-generated images in client work. Creative manifestos co-written with AI",
+      "visual": { "type": "diffusion" }
+    },
+    {
+      "id": "d-poster", "at": 70, "dwell": 2.4,
+      "date": "Aug 2024",
+      "label": "Idea \"Indigenous wisdom × digital future\" becomes a film-poster concept with a Midjourney prompt",
+      "visual": { "type": "promptToPoster", "prompt": "Indigenous wisdom × digital future" }
+    },
+    {
+      "id": "d-flux", "at": 76.8, "dwell": 1.4, "x": 1100, "pinned": true,
+      "date": "Dec 2024",
+      "label": "Images analysed and translated into Flux prompts",
+      "link": { "to": "w-flux", "at": 0.25 }
+    },
+    {
+      "id": "d-voice", "at": 78, "dwell": 4, "hideLabel": true,
+      "date": "Dec 20, 2024",
+      "label": "The voice moment",
+      "visual": {
+        "type": "voice",
+        "lines": [
+          { "speaker": "daniel", "at": 0.5, "duration": 1.2, "text": "Kannst du mich verstehen?", "subtitle": "Can you understand me?", "audio": "audio/daniel-voice.wav" },
+          { "speaker": "ai", "at": 2.2, "duration": 0.9, "text": "Yes, I can.", "subtitle": "Yes, I can.", "audio": "audio/ai-voice.wav" }
+        ]
+      }
+    },
+
+    {
+      "id": "d-academy", "at": 87.2, "dwell": 2.6, "x": 980, "accent": true,
+      "date": "Feb 2025",
+      "label": "The AI Academy is born",
+      "link": { "to": "w-article4", "at": 0.05, "strong": true }
+    },
+    {
+      "id": "d-clients", "at": 89.4, "dwell": 1.7, "x": 300,
+      "label": "Programmes for Zscaler, F5 EMEA and Harman",
+      "visual": { "type": "wordmarks", "items": ["Zscaler", "F5 EMEA", "Harman"] }
+    },
+    {
+      "id": "d-joburg", "at": 91, "dwell": 1.5, "x": 1180,
+      "label": "Team training in Johannesburg",
+      "visual": { "type": "map", "cities": ["Germany", "London", "Johannesburg"], "newCity": "Johannesburg" }
+    },
+    {
+      "id": "d-geo", "at": 92.4, "dwell": 1.7, "x": 300,
+      "date": "Mar 2025",
+      "label": "\"Which sources shape what a language model says about a brand?\"",
+      "visual": { "type": "citations", "brand": "Brand" }
+    },
+    {
+      "id": "d-teachers", "at": 97, "dwell": 2, "x": 300, "pinned": true,
+      "date": "May 19, 2025",
+      "label": "First volunteer workshop. 25 teachers.",
+      "people": { "group": "teachers" }
+    },
+    {
+      "id": "d-waves", "at": 99, "dwell": 3.6, "x": 300, "pinned": true,
+      "label": "Bavarian seminar leaders. A Montessori school. Then students",
+      "people": { "group": "waves" }
+    },
+    {
+      "id": "d-callback", "at": 103, "dwell": 4, "hideLabel": true,
+      "label": "Teaching my kids not to believe everything they see.",
+      "visual": { "type": "callback", "frameLabel": "Dad", "stamp": "AI-GENERATED", "flipAt": 0.8, "textAt": 1.4, "rayAt": 2.4, "rayHold": 1.0 }
+    },
+
+    {
+      "id": "d-title", "at": 109, "dwell": 1.9, "hideLabel": true,
+      "date": "2026",
+      "label": "Managing Director Germany & Head of AI and Digital Innovation EMEA",
+      "visual": { "type": "titleWrite" }
+    },
+    {
+      "id": "d-dashboard", "at": 111, "dwell": 1.8, "x": 1180,
+      "label": "GEO gets measurable",
+      "visual": { "type": "dashboard", "bars": [
+        { "label": "AI visibility", "value": 0.78 },
+        { "label": "Brand accuracy", "value": 0.64 },
+        { "label": "Trust in health information", "value": 0.86 }
+      ] }
+    },
+    {
+      "id": "d-10th", "at": 113, "dwell": 1.6, "x": 300, "pinned": true,
+      "label": "AI training for 10th graders",
+      "people": { "group": "tenth" }
+    },
+    {
+      "id": "d-verbs", "at": 116, "dwell": 1.9, "hideLabel": true, "centre": true,
+      "label": "Delegate. Supervise. Limit.",
+      "visual": { "type": "verbs", "interval": 0.5 }
+    },
+    {
+      "id": "d-agents", "at": 118, "dwell": 2.2, "hideLabel": true,
+      "label": "Lead pipeline rebuilt with automations. Interactive learning aids for my son",
+      "visual": { "type": "agentPair", "windows": ["Lead pipeline rebuilt with automations", "Interactive learning aids for my son"] }
+    },
+    {
+      "id": "d-question", "at": 120, "dwell": 5, "hideLabel": true,
+      "label": "Does your organisation overestimate how fast it can change?",
+      "visual": { "type": "question" }
+    },
+    {
+      "id": "d-code", "at": 122, "dwell": 1.6, "x": 1240, "y": 24, "compact": true,
+      "label": "A brief for a short film, generated entirely as code",
+      "visual": { "type": "codeEditor", "file": "Film.tsx" }
+    }
+  ],
+  "peopleGroups": {
+    "teachers": { "rows": [25], "labels": ["25 teachers"] },
+    "waves": { "rows": [14, 18, 26], "labels": ["Bavarian seminar leaders", "A Montessori school", "Students"] },
+    "tenth": { "rows": [24], "labels": ["10th graders"] }
+  },
+  "crescendo": {
+    "at": 123, "until": 125,
+    "centre": "Daniel",
+    "windows": ["Research", "Lead pipeline", "Learning aids", "GEO audit", "Training", "Film.tsx"]
+  },
+  "exit": { "at": 125, "cut": 127 }
+}

@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "durationSeconds": 140,
+  "coldOpen": { "start": 0, "end": 27 },
+  "transition": { "start": 27, "end": 35 },
+  "finale": { "start": 127, "end": 140 },
+  "years": [
+    { "year": "2022", "subtitle": "", "start": 31, "end": 35, "speed": 30, "bpm": 84 },
+    { "year": "2023", "subtitle": "Exploring", "start": 35, "end": 57, "speed": 40, "bpm": 90 },
+    { "year": "2024", "subtitle": "Expanding", "start": 57, "end": 82, "speed": 80, "bpm": 100 },
+    { "year": "2025", "subtitle": "Enabling others", "start": 82, "end": 107, "speed": 160, "bpm": 115 },
+    { "year": "2026", "subtitle": "Directing", "start": 107, "end": 127, "speed": 320, "bpm": 128 }
+  ],
+  "titleCardSeconds": { "2023": 2, "2024": 2, "2025": 1.2, "2026": 1 },
+  "laneLabels": { "world": "THE WORLD", "daniel": "DANIEL" },
+  "userCounterLabel": "ChatGPT"
+}

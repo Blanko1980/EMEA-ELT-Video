@@ -1,0 +1,34 @@
+{
+  "participants": {
+    "daniel": { "name": "Daniel", "initials": "DB" },
+    "ray": { "name": "Ray Page", "initials": "RP" }
+  },
+  "coldOpen": [
+    { "at": 1.0, "type": "message", "from": "daniel", "timestamp": "12-Dec-22 19:01", "text": "btw: have you toyed around with ChatGPT yet?" },
+    { "at": 4.0, "type": "message", "from": "daniel", "text": "it's crazy. like mindboggling crazy" },
+    { "at": 6.0, "type": "typing", "from": "ray", "until": 8.0 },
+    { "at": 8.0, "type": "message", "from": "ray", "timestamp": "12-Dec-22 19:10", "text": "i haven't at all." },
+    { "at": 10.0, "type": "clock", "from": "19:10", "to": "19:13", "until": 11.0 },
+    { "at": 11.0, "type": "message", "from": "ray", "timestamp": "12-Dec-22 19:13", "text": "stop" },
+    { "at": 12.0, "type": "message", "from": "ray", "text": "wow" },
+    { "at": 13.0, "type": "message", "from": "ray", "text": "i just created an account" },
+    { "at": 15.0, "type": "message", "from": "daniel", "timestamp": "12-Dec-22 19:13", "text": "haha - say goodbye to the rest of your day then" },
+    { "at": 17.0, "type": "message", "from": "daniel", "timestamp": "12-Dec-22 19:18", "text": "I've read about people having that thing create nutrition plans and stuff already" },
+    { "at": 19.0, "type": "message", "from": "daniel", "text": "however: it creates a lot of false info in full confidence 🙄 So don't use it for your promotion paper yet 🙄" },
+    { "at": 22.0, "type": "typing", "from": "ray", "until": 23.0 },
+    { "at": 23.0, "type": "message", "from": "ray", "timestamp": "12-Dec-22 19:20", "text": "false info in full confidence. sounds like my kids!", "highlight": "false info in full confidence", "highlightAt": 26.0, "reaction": "😆", "reactionAt": 26.0, "id": "punchline" }
+  ],
+  "yearSource": { "text": "12-Dec-22", "year": "2022" },
+  "callbackLine": "sounds like my kids!",
+  "finaleDate": "October 7, 2026",
+  "finale": [
+    { "at": 129.0, "type": "divider" },
+    { "at": 130.0, "type": "compose", "from": "daniel", "text": "btw: have you seen what it can do now?", "until": 131.8 },
+    { "at": 131.8, "type": "message", "from": "daniel", "timestamp": "07-Oct-26", "text": "btw: have you seen what it can do now?" },
+    { "at": 132.2, "type": "typing", "from": "ray", "until": 134.0 }
+  ],
+  "outro": {
+    "line1": "This film was generated entirely as code.",
+    "line2": "Every fact was checked anyway."
+  }
+}

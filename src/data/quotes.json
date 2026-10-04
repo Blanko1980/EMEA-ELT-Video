@@ -1,0 +1,51 @@
+[
+  {
+    "id": "Q1",
+    "date": "Dec 10, 2022",
+    "speaker": "Sam Altman",
+    "role": "CEO OpenAI, on X",
+    "text": "ChatGPT is incredibly limited, but good enough at some things to create a misleading impression of greatness.",
+    "source": "https://venturebeat.com/ai/openai-ceo-admits-chatgpt-risks-what-now-the-ai-beat"
+  },
+  {
+    "id": "Q2",
+    "date": "Mar 21, 2023",
+    "speaker": "Bill Gates",
+    "role": "Blog: The Age of AI has begun",
+    "text": "The development of AI is as fundamental as the creation of the microprocessor, the personal computer, the Internet, and the mobile phone.",
+    "source": "https://bigdatawire.com/2023/03/22/bill-gates-says-the-age-of-ai-has-begun-bringing-opportunity-and-responsibility"
+  },
+  {
+    "id": "Q3",
+    "date": "May 13, 2024",
+    "speaker": "Sam Altman",
+    "role": "on X",
+    "text": "her",
+    "source": "https://en.wikipedia.org/wiki/GPT-4o"
+  },
+  {
+    "id": "Q4",
+    "date": "Oct 8, 2024",
+    "speaker": "Geoffrey Hinton",
+    "role": "Nobel laureate in Physics",
+    "text": "It will be comparable with the industrial revolution. But instead of exceeding people in physical strength, it's going to exceed people in intellectual ability.",
+    "source": "https://livescience.com/technology/artificial-intelligence/it-will-be-comparable-with-the-industrial-revolution-two-legendary-ai-scientists-win-nobel-prize-in-physics-for-work-on-neural-networks"
+  },
+  {
+    "id": "Q5",
+    "date": "Jan 26, 2025",
+    "speaker": "Marc Andreessen",
+    "role": "Investor, on X",
+    "text": "AI's Sputnik moment",
+    "source": "https://www.business-standard.com/amp/markets/news/deepseek-sparks-ai-stock-selloff-nvidia-loses-record-593-bn-in-mcap-125012800095_1.html"
+  },
+  {
+    "id": "Q6",
+    "date": "Mar 27, 2025",
+    "speaker": "Sam Altman",
+    "role": "on X",
+    "text": "it's super fun seeing people love images in chatgpt. but our GPUs are melting.",
+    "screenText": "…our GPUs are melting.",
+    "source": "https://www.business-standard.com/technology/tech-news/openai-image-generation-limits-ghibli-trend-sam-altman-125032800179_1.html"
+  }
+]

@@ -1,0 +1,153 @@
+[
+  {
+    "id": "w-launch", "at": 33, "dwell": 2.2, "x": 640,
+    "date": "Nov 30, 2022",
+    "label": "ChatGPT launches. 1 million users in 5 days.",
+    "userCount": { "value": 1000000, "unit": "users" },
+    "status": "Checked"
+  },
+  {
+    "id": "w-100m", "at": 37, "dwell": 2.8,
+    "date": "Jan 2023",
+    "label": "ChatGPT hits 100 million users in two months, the fastest-growing consumer app to date",
+    "userCount": { "value": 100000000, "unit": "users", "rampSeconds": 1.6 },
+    "status": "Checked 2026-10-04", "source": "https://windowscentral.com/software-apps/chatgpt-sets-growth-record-reportedly-hitting-100-million-users-in-january"
+  },
+  {
+    "id": "w-gpt4", "at": 42, "dwell": 3, "x": 560,
+    "date": "Mar 14, 2023",
+    "label": "GPT-4 launches. Anthropic's Claude debuts the same day",
+    "visual": { "type": "wordmarks", "items": ["GPT-4", "Claude"] },
+    "status": "Checked 2026-10-04", "source": "https://simonwillison.net/2023/Mar/14"
+  },
+  {
+    "id": "w-bard", "at": 44, "dwell": 1.1, "x": 1420, "compact": true,
+    "date": "Mar 21, 2023",
+    "label": "Google opens Bard",
+    "visual": { "type": "wordmarks", "items": ["Bard"] },
+    "status": "Checked"
+  },
+  { "id": "q-gates", "at": 45, "dwell": 3.5, "quote": "Q2" },
+  {
+    "id": "w-pope", "at": 49, "dwell": 3,
+    "date": "Mar 2023",
+    "label": "A fake photo of the Pope in a puffer jacket goes viral",
+    "visual": { "type": "fakeStamp", "stamp": "FAKE" },
+    "status": "Checked 2026-10-04", "source": "https://www.nbcnews.com/tech/pope-francis-ai-generated-images-fool-internet-rcna76838"
+  },
+  {
+    "id": "w-altman", "at": 53, "dwell": 2.8, "hideLabel": true,
+    "date": "Nov 17, 2023",
+    "label": "OpenAI fires Sam Altman. Five days later, he's back",
+    "visual": { "type": "headlineCuts" },
+    "status": "Checked 2026-10-04", "source": "https://en.wikipedia.org/wiki/Removal_of_Sam_Altman_from_OpenAI"
+  },
+
+  {
+    "id": "w-sora", "at": 59, "dwell": 2.4,
+    "date": "Feb 15, 2024",
+    "label": "OpenAI previews Sora, video from text",
+    "visual": { "type": "frameGrid" },
+    "status": "Checked 2026-10-04", "source": "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)"
+  },
+  {
+    "id": "w-gpt4o", "at": 65, "dwell": 1.1,
+    "date": "May 13, 2024",
+    "label": "GPT-4o, real-time voice conversation",
+    "visual": { "type": "waveform" },
+    "status": "Checked"
+  },
+  { "id": "q-her", "at": 66.1, "dwell": 1.9, "quote": "Q3", "style": "minimal" },
+  {
+    "id": "w-euact", "at": 68, "dwell": 2.4, "x": 1100, "lift": 110, "pinned": true,
+    "date": "Aug 1, 2024",
+    "label": "EU AI Act enters into force",
+    "status": "Checked 2026-10-04", "source": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act"
+  },
+  {
+    "id": "w-flux", "at": 68.3, "dwell": 9.9, "x": 1100, "pinned": true, "highlight": true, "compact": true,
+    "date": "Aug 1, 2024",
+    "label": "Same day: Black Forest Labs, from Freiburg, releases Flux",
+    "status": "Checked 2026-10-04", "source": "https://en.wikipedia.org/wiki/Flux_(text-to-image_model)"
+  },
+  {
+    "id": "w-o1", "at": 72, "dwell": 1.1, "lift": 110,
+    "date": "Sep 12, 2024",
+    "label": "OpenAI o1, AI that \"thinks\" before answering",
+    "visual": { "type": "spinnerThought" },
+    "status": "Checked 2026-10-04", "source": "https://www.longtermwiki.com/ai-models/o1-preview"
+  },
+  {
+    "id": "w-nobel", "at": 73, "dwell": 1.1, "lift": 110,
+    "date": "Oct 2024",
+    "label": "Nobel Prizes in Physics and Chemistry go to AI pioneers",
+    "visual": { "type": "medals", "items": ["Physics", "Chemistry"] },
+    "status": "Checked"
+  },
+  { "id": "q-hinton", "at": 74, "dwell": 3.5, "quote": "Q4", "y": 20 },
+
+  {
+    "id": "w-deepseek", "at": 83, "dwell": 2,
+    "date": "Jan 27, 2025",
+    "label": "DeepSeek R1 shock. Nvidia loses about $593 billion in market value in a single day",
+    "visual": { "type": "stockDrop" },
+    "status": "Checked"
+  },
+  { "id": "q-andreessen", "at": 85, "dwell": 2.2, "quote": "Q5" },
+  {
+    "id": "w-article4", "at": 87.2, "dwell": 2.6, "x": 980, "accent": true,
+    "date": "Feb 2, 2025",
+    "label": "EU AI Act, Article 4. AI literacy becomes mandatory for companies",
+    "status": "Checked 2026-10-04", "source": "https://datamatters.sidley.com/2024/12/16/eu-ai-act-are-you-prepared-for-the-ai-literacy-principle/"
+  },
+  {
+    "id": "w-ghibli", "at": 94, "dwell": 1.2,
+    "date": "Mar 25, 2025",
+    "label": "ChatGPT's new image generator triggers a global wave of Studio Ghibli-style images",
+    "visual": { "type": "tileFlood" },
+    "status": "Checked"
+  },
+  { "id": "q-melting", "at": 95.2, "dwell": 2.5, "quote": "Q6", "style": "drip" },
+  {
+    "id": "w-veo3", "at": 99.8, "dwell": 1.4,
+    "date": "May 20, 2025",
+    "label": "Google's Veo 3 generates video with sound",
+    "visual": { "type": "videoWave" },
+    "status": "Checked 2026-10-04", "source": "https://techcrunch.com/2025/05/20/googles-veo-3-can-generate-videos-and-soundtracks-to-go-along-with-them"
+  },
+  {
+    "id": "w-gpt5", "at": 101, "dwell": 1.2, "x": 1380, "lift": 150, "compact": true,
+    "date": "Aug 7, 2025",
+    "label": "GPT-5 launches",
+    "status": "Checked 2026-10-04", "source": "https://en.wikipedia.org/wiki/GPT-5"
+  },
+  {
+    "id": "w-800m", "at": 101.5, "dwell": 1.6, "x": 1380, "compact": true,
+    "date": "Oct 2025",
+    "label": "ChatGPT reaches 800 million weekly users",
+    "userCount": { "value": 800000000, "unit": "weekly users", "rampSeconds": 0.6 },
+    "status": "Checked, secondary"
+  },
+
+  {
+    "id": "w-agents", "at": 108, "dwell": 2.6,
+    "date": "Jan 2026",
+    "label": "AI agents leave the lab. Tools like Claude Cowork bring agentic AI to non-developers",
+    "visual": { "type": "agentSwarm" },
+    "status": "Checked"
+  },
+  {
+    "id": "w-900m", "at": 111, "dwell": 1.6, "x": 1240, "compact": true,
+    "date": "Feb 2026",
+    "label": "ChatGPT reaches 900 million weekly users",
+    "userCount": { "value": 900000000, "unit": "weekly users", "rampSeconds": 0.5 },
+    "status": "Checked, secondary"
+  },
+  {
+    "id": "w-export", "at": 114, "dwell": 2.2,
+    "date": "Jun 2026",
+    "label": "A frontier AI model is pulled for 19 days under US export controls. AI is now geopolitics",
+    "visual": { "type": "flicker" },
+    "status": "Checked"
+  }
+]
