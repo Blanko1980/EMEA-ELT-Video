@@ -1,0 +1,382 @@
+/* ==========================================================================
+   FOUR YEARS · We. Communications opening film
+   All colours and type live here as custom properties.
+   The film is authored on a fixed 1920 × 1080 stage that script.js scales
+   to fit any window while keeping the 16:9 composition.
+   ========================================================================== */
+
+/* Bundled open-source fonts (SIL OFL 1.1): no network needed, works from file:// */
+@font-face {
+  font-family: "Inter Tight";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url("fonts/InterTight-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter Tight";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: block;
+  src: url("fonts/InterTight-Italic-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: block;
+  src: url("fonts/JetBrainsMono-Variable.woff2") format("woff2");
+}
+
+:root {
+  /* Palette: deep plum brand colour on a warm neutral base, plus one hot accent */
+  --ink:        #140a17;   /* near-black with a plum undertone */
+  --plum:       #4a1052;   /* primary brand plum */
+  --plum-deep:  #2a0830;   /* darker plum for depth scenes */
+  --cream:      #f4eee6;   /* warm neutral base */
+  --coral:      #ff5a36;   /* energy accent: the human / the prompt / the brand */
+  --lilac:      #c9b6ff;   /* soft secondary accent for machine-generated layers */
+  --letterbox:  #000000;   /* colour around the 16:9 stage */
+
+  /* Type */
+  --font-display: "Inter Tight", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Layout */
+  --margin: 120px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--letterbox);
+}
+
+body.loading #stage { opacity: 0; }
+body.idle, body.idle * { cursor: none !important; }
+
+#viewport { position: fixed; inset: 0; background: var(--letterbox); }
+
+#stage {
+  position: absolute;
+  left: 0; top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  transition: opacity .4s ease;
+}
+
+#fx { position: absolute; inset: 0; width: 1920px; height: 1080px; display: block; }
+
+#grain {
+  position: absolute; inset: -40px;
+  pointer-events: none;
+  opacity: .07;
+  mix-blend-mode: overlay;
+  z-index: 50;
+}
+
+/* --------------------------------------------------------------------------
+   Shared type system
+   -------------------------------------------------------------------------- */
+
+.scene { position: absolute; inset: 0; visibility: hidden; z-index: 5; }
+.scene.on { visibility: visible; }
+.scene.light { color: var(--plum); }
+
+.mono { font-family: var(--font-mono); }
+.acc  { color: var(--coral); }
+.nowrap { white-space: nowrap; }
+
+h1, h2, p, ol { margin: 0; padding: 0; font-weight: inherit; }
+
+.mega, .huge, .giant, .big {
+  position: absolute;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: .9;
+  text-transform: uppercase;
+}
+.mega  { font-size: 268px; }
+.giant { font-size: 196px; }
+.huge  { font-size: 148px; }
+.big   { font-size: 120px; }
+
+.lede {
+  position: absolute;
+  font-size: 60px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.sub {
+  position: absolute;
+  font-size: 46px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+.sub .em { font-style: italic; font-weight: 600; color: var(--coral); }
+
+.label {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* Word masks for the editorial "rise" reveal (built by script.js) */
+.w  { display: inline-block; overflow: hidden; vertical-align: top;
+      padding: .08em .03em .12em; margin: -.08em -.03em -.12em; }
+.wi { display: inline-block; will-change: transform; transform: translate3d(0, 130%, 0); }
+
+/* Optical kerning for display-size full stops (see splitWords) */
+:is(.mega, .huge, .giant, .big) .kp { margin-left: -.06em; }
+:is(.mega, .huge, .giant, .big) .kp-open { margin-left: -.12em; }
+
+/* Anchors mark positions the canvas layer needs (e.g. the prompt dot) */
+.anchor { display: inline-block; width: .2em; height: .2em; vertical-align: baseline; }
+
+/* --------------------------------------------------------------------------
+   00 · The prompt
+   -------------------------------------------------------------------------- */
+
+.s1-wrap { position: absolute; left: 200px; top: 420px; width: 1520px; }
+#s1-date { color: var(--coral); margin-bottom: 34px; }
+.s1-prompt {
+  font-size: 84px; font-weight: 500; letter-spacing: -0.025em; line-height: 1;
+  display: inline-block; white-space: nowrap; height: 96px;
+  transform-origin: 100% 50%;
+}
+.caret {
+  display: inline-block;
+  width: 10px; height: .92em;
+  margin-left: 6px;
+  vertical-align: -0.12em;
+  background: var(--coral);
+}
+.caret.thin { width: 4px; margin-left: 4px; }
+.s1-line {
+  height: 2px; margin-top: 26px;
+  background: currentColor; opacity: .35;
+  transform-origin: 0 50%; transform: scaleX(0);
+}
+#s1-enter { margin-top: 26px; opacity: 0; color: var(--lilac); }
+
+/* --------------------------------------------------------------------------
+   00 · Four years
+   -------------------------------------------------------------------------- */
+
+#s2-four { left: 104px; top: 200px; }
+#s2-from { left: 116px; top: 590px; }
+
+/* --------------------------------------------------------------------------
+   01 · Production
+   -------------------------------------------------------------------------- */
+
+#s3-lede { left: var(--margin); top: 230px; }
+#s3-head { left: var(--margin); top: 316px; width: 820px; }
+
+.drafts { position: absolute; left: 1010px; top: 214px; width: 800px; list-style: none; }
+.drafts li {
+  display: flex; align-items: baseline; gap: 22px;
+  font-size: 31px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2;
+  padding: 10px 0;
+  border-top: 1.5px solid rgba(74, 16, 82, .16);
+  white-space: nowrap;
+  will-change: clip-path, opacity;
+}
+.drafts li .v { font-size: 17px; font-weight: 500; letter-spacing: .06em; opacity: .55; flex: none; width: 56px; }
+.counter {
+  position: absolute; left: 1010px; top: 760px;
+  font-size: 20px; letter-spacing: .12em; text-transform: uppercase; opacity: 0;
+}
+.counter b { color: var(--coral); font-weight: 700; margin-left: 12px; font-size: 26px; }
+.note {
+  position: absolute; left: 1520px; top: 752px;
+  font-size: 40px; font-style: italic; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--coral); opacity: 0; white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   02 · Ideation
+   -------------------------------------------------------------------------- */
+
+#s4-lede { left: var(--margin); top: 676px; }
+#s4-head { left: var(--margin); top: 756px; white-space: nowrap; }
+
+/* --------------------------------------------------------------------------
+   03 · Adaptation & distribution
+   -------------------------------------------------------------------------- */
+
+#s5 .big { font-size: 106px; }
+#s5-a { left: var(--margin); top: 300px; }
+#s5-b { left: var(--margin); top: 420px; }
+#s5-c { left: var(--margin); top: 540px; }
+
+.story-tile {
+  position: absolute; left: 1210px; top: 405px; width: 420px; height: 260px;
+  background: var(--plum); color: var(--cream); border-radius: 6px;
+  padding: 26px 28px; display: flex; flex-direction: column; gap: 16px;
+  opacity: 0; will-change: transform, opacity;
+}
+.story-tile .k { font-size: 20px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 18px; }
+.story-tile i { display: block; height: 14px; border-radius: 2px; background: currentColor; opacity: .45; }
+.story-tile i:nth-of-type(2) { width: 82%; }
+.story-tile i:nth-of-type(3) { width: 58%; }
+
+.tile {
+  position: absolute;
+  border-radius: 6px;
+  padding: 16px 18px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  opacity: 0; will-change: transform, opacity;
+  overflow: hidden;
+}
+.tile .k { font-family: var(--font-mono); font-size: 16px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+.tile .code { font-size: 78px; font-weight: 900; letter-spacing: -0.04em; line-height: .8; }
+.t-plum  { background: var(--plum);  color: var(--cream); }
+.t-coral { background: var(--coral); color: var(--ink); }
+.t-lilac { background: var(--lilac); color: var(--plum); }
+.t-ink   { background: var(--ink);   color: var(--cream); }
+.t-line  { box-shadow: inset 0 0 0 2px var(--plum); color: var(--plum); }
+
+.deco-lines i { display: block; height: 9px; border-radius: 2px; background: currentColor; opacity: .5; margin-top: 9px; }
+.deco-lines i:nth-child(2) { width: 78%; }
+.deco-lines i:nth-child(3) { width: 52%; }
+.deco-play { width: 0; height: 0; align-self: center; margin: auto 0;
+  border-left: 46px solid var(--coral); border-top: 28px solid transparent; border-bottom: 28px solid transparent; }
+.deco-wave { height: 54px; background: repeating-linear-gradient(90deg, currentColor 0 5px, transparent 5px 11px);
+  opacity: .8;
+  clip-path: polygon(0 60%,6% 30%,12% 55%,18% 10%,24% 45%,30% 25%,36% 70%,42% 0,48% 40%,54% 20%,60% 65%,66% 15%,72% 50%,78% 30%,84% 60%,90% 35%,100% 55%,100% 100%,0 100%); }
+.deco-bars { display: flex; align-items: flex-end; gap: 10px; height: 64px; }
+.deco-bars i { flex: 1; background: currentColor; border-radius: 2px 2px 0 0; }
+
+/* --------------------------------------------------------------------------
+   04 · Discovery & visibility
+   -------------------------------------------------------------------------- */
+
+#s6 .big { font-size: 100px; width: 880px; }
+#s6-a { left: var(--margin); top: 180px; }
+#s6-b { left: var(--margin); top: 470px; }
+#s6-sub { left: var(--margin); top: 690px; width: 900px; color: rgba(244, 238, 230, .88); }
+.query {
+  position: absolute; left: 1060px; top: 196px; width: 740px;
+  font-size: 30px; letter-spacing: -0.01em; white-space: nowrap;
+  padding-bottom: 18px; border-bottom: 2px solid rgba(244, 238, 230, .4);
+  display: flex; align-items: center; gap: 18px; opacity: 0;
+}
+.query .q {
+  display: inline-grid; place-items: center; flex: none;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--coral); color: var(--ink); font-weight: 700; font-size: 26px;
+}
+
+/* --------------------------------------------------------------------------
+   05 · Reputation & trust
+   -------------------------------------------------------------------------- */
+
+#s7-lede { left: var(--margin); top: 640px; }
+#s7-head { left: var(--margin); top: 722px; width: 1100px; font-size: 124px; }
+
+/* --------------------------------------------------------------------------
+   06 · Who tells the story
+   -------------------------------------------------------------------------- */
+
+#s8-a, #s8-c { left: var(--margin); top: 250px; }
+.slot {
+  position: absolute; left: var(--margin); top: 340px;
+  height: 1em; width: 1700px;
+  font-weight: 900; letter-spacing: -0.045em; line-height: .9;
+  overflow: hidden; padding: .06em 0 .14em; box-sizing: content-box; margin-top: -.06em;
+}
+.slot .sw { position: absolute; left: 0; top: .06em; white-space: nowrap; }
+.slot .ch { display: inline-block; will-change: transform; transform: translate3d(0, 130%, 0); }
+#s8-story { left: var(--margin); top: 540px; }
+
+/* --------------------------------------------------------------------------
+   07 · What comes next
+   -------------------------------------------------------------------------- */
+
+#s9-a { left: var(--margin); top: 200px; }
+.mark {
+  position: absolute; right: 150px; bottom: 120px;
+  font-size: 200px; font-weight: 800; letter-spacing: -0.05em; line-height: 1;
+  white-space: nowrap;
+}
+.mark .w { padding-right: .02em; }
+.mark .anchor { width: .2em; height: .2em; margin-left: .03em; }
+
+/* --------------------------------------------------------------------------
+   Film chrome: brand mark, chapter / year, four-year rail
+   -------------------------------------------------------------------------- */
+
+#chrome { position: absolute; inset: 0; z-index: 20; pointer-events: none; color: var(--cream); transition: color .35s ease; }
+#chrome.light { color: var(--plum); }
+
+.brand {
+  position: absolute; left: var(--margin); top: 54px;
+  font-size: 44px; font-weight: 800; letter-spacing: -0.05em; line-height: 1;
+  opacity: 0;
+}
+.chapter {
+  position: absolute; right: var(--margin); top: 64px;
+  display: flex; align-items: center; gap: 18px;
+  font-size: 20px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  opacity: 0;
+}
+.ch-mask { display: inline-block; overflow: hidden; padding: 2px 0; }
+.ch-mask > * { display: inline-block; }
+.chapter b { font-weight: 700; color: var(--coral); }
+.ch-sep { width: 40px; height: 2px; background: currentColor; opacity: .5; }
+
+#rail { position: absolute; left: var(--margin); right: var(--margin); bottom: 58px; opacity: 0; }
+.rail-track { position: relative; height: 2px; }
+.rail-track::after { content: ""; position: absolute; inset: 0; background: currentColor; opacity: .22; }
+.rail-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--coral); z-index: 1; }
+.rail-head { position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--coral); z-index: 2; }
+.rail-ticks { position: relative; height: 34px; }
+.rail-tick {
+  position: absolute; top: 0; height: 34px;
+  padding-top: 14px; text-align: center;
+  font-family: var(--font-mono); font-size: 17px; letter-spacing: .12em;
+  opacity: .45; white-space: nowrap; transition: opacity .3s ease;
+}
+.rail-tick::before { content: ""; position: absolute; left: 0; top: -6px; width: 2px; height: 12px; background: currentColor; }
+.rail-tick.past { opacity: 1; }
+
+/* --------------------------------------------------------------------------
+   Playback UI (outside the film)
+   -------------------------------------------------------------------------- */
+
+#ui {
+  position: fixed; left: 24px; right: 24px; bottom: 16px; z-index: 100;
+  color: #fff; font-size: 13px;
+  transition: opacity .4s ease;
+}
+body.idle #ui, body.clean #ui, body.hide-ui #ui { opacity: 0; pointer-events: none; }
+#ui-bar { position: relative; height: 4px; background: rgba(255,255,255,.18); border-radius: 2px; cursor: pointer; }
+#ui-bar::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; bottom: -10px; }
+#ui-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--coral); border-radius: 2px; }
+#ui-row { display: flex; justify-content: space-between; margin-top: 10px; opacity: .7; letter-spacing: .04em; }
+.ui-keys b { font-weight: 700; color: var(--coral); }
+
+#ui-state {
+  position: fixed; top: 20px; right: 24px; z-index: 100;
+  color: #fff; font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+  background: rgba(0,0,0,.5); padding: 8px 12px; border-radius: 3px;
+  opacity: 0; transition: opacity .3s ease; pointer-events: none;
+}
+#ui-state.show { opacity: 1; }
+body.clean #ui-state { display: none; }
